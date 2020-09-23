@@ -192,3 +192,18 @@ Here is what a rendered code snippet looks like:
 {{#playground example.rs}}
 
 [Rust Playground]: https://play.rust-lang.org/
+
+## Font-Awesome icons
+
+mdBook includes a copy of [Font Awesome Free's](https://fontawesome.com)
+MIT-licensed SVG files. It emulates the `<i class="fa">` syntax, but converts
+the results to inline SVG. Only the regular, solid, and brands icons are
+included; paid features like the light icons are not.
+
+For example, given this HTML syntax:
+
+```handlebars
+The result looks like this: <i class="fas fa-print"></i>
+```
+
+The result looks like this: <i class="fas fa-print"></i>
