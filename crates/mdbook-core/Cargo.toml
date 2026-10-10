@@ -17,6 +17,7 @@ tracing.workspace = true
 
 [dev-dependencies]
 tempfile.workspace = true
+rayon = "1.12"
 
 [lints]
 workspace = true

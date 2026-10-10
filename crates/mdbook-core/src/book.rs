@@ -91,6 +91,17 @@ impl Book {
 
     /// Recursively collect all chapters in the book as mutable thin references,
     /// allowing you to mutate them in parallel.
+    ///
+    /// ```
+    /// use rayon::iter::{IntoParallelRefMutIterator, ParallelIterator};
+    /// # use mdbook_core::book::Book;
+    /// # let mut book = Book { items: vec![] };
+    /// book
+    ///     .chapters_mut_thin()
+    ///     .par_iter_mut()
+    ///     .for_each(|chapter| chapter.name.push_str(" [edited]"));
+    /// assert!(book.chapters().all(|chapter| chapter.name.ends_with(" [edited]")));
+    /// ```
     pub fn chapters_mut_thin(&mut self) -> Vec<ChapterMutThin<'_>> {
         let mut chapters_thin = Vec::new();
         chapters_mut_thin(&mut self.items, &mut chapters_thin);
